@@ -1,8 +1,12 @@
-/**
-* Global base stylings 
+/*
+@name: base
+*
+@description: 
+* Global styles that are applied to the project live here.
 *
 */
 
 body, html {
     font-family: sans-serif;
+    color: $global-color-text; 
 }

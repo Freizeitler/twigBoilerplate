@@ -1,10 +1,14 @@
-/**
+/*
+@name: grid
+*
+@description
 * Simple flexbox grid mixin
 * @init: @include grid([overall grid count], [gutter width]);
 * @html: 
 *   <elem class="elem elem--[overall grid count] /> -> wrapper
 *   <elem class="elem--inner elem--[overall grid count] /> -> nested grid
 *   <elem class="elem elem--[n] /> -> column width: [overall grid count] / [n] 
+*
 */
 
 @mixin flex-format() {

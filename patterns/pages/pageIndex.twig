@@ -1,7 +1,7 @@
-{% extends "pageGlobal.twig" %}
+{% extends "pages/pageGlobal.twig" %}
 
 {% block content %}
 
-{{ data.text }}
+    {% embed 'templates/templateIndex/templateIndex.twig' %}{% endembed %}
 
 {% endblock %}

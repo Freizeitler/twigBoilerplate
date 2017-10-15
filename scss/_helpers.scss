@@ -1,0 +1,12 @@
+/*
+@name: helpers
+*
+@description: 
+* Global helper mixins
+*
+*/
+
+@mixin global-container {
+    max-width: $max-width;
+    margin: 0 auto;
+}
