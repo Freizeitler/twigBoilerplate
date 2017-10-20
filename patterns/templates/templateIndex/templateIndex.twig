@@ -1,2 +1,21 @@
+{#
+@name: templateIndex
+*
+@description: The layout for the start page
+*
+#}
 
-{{ data.text }}
+{% embed "organisms/pageHeader/pageHeader.twig" with {
+    headline: data.header.text
+} %}{% endembed %}
+
+<main class="templateIndex__main">
+    <h2 class="templateIndex__main__headline">
+        {{ data.main.headline }}
+    </h2>
+    <p>{{ data.main.text }}</p>
+</main>
+
+<footer class="tamplateIndex__footer">
+    <p>{{ data.footer.text}}</p>
+</footer>

@@ -4,6 +4,7 @@ var gulp = require('gulp'),
 watch = require('gulp-watch'),
 sass = require('gulp-sass');
 
+// gulp-sass
 gulp.task('sassPatterns', function() {
   return gulp.src('patterns/**/*.scss')
   .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
@@ -18,7 +19,7 @@ gulp.task('sassGlobals', function() {
   .pipe(gulp.dest('assets/css/'));
 });
 
-// watchers:
+// gulp-watch
 gulp.task('watch', function () {
     gulp.watch('patterns/**/*.scss', ['sassPatterns']);    
     gulp.watch('scss/*.scss', ['sassGlobals']);
