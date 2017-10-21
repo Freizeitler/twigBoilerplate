@@ -13,9 +13,9 @@
 
 <main class="templateIndex__main">
     <h2 class="templateIndex__main__headline">
-        {{ data.main.headline }}
+        {{ data.main.headline | raw }}
     </h2>
-    <p>{{ data.main.text }}</p>
+    <p>{{ data.main.text | raw }}</p>
 </main>
 
 {% embed "organisms/pageFooter/pageFooter.twig" with {

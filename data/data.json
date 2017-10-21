@@ -3,10 +3,10 @@
     "text": "Twig Boilerplate"
    },
    "main": {
-    "headline": "Headline from data",
-    "text": "Test content from data"
+    "headline": "A boilerplate for Twig projects",
+    "text": "An Atomic Web Design boilerplate for rapid prototyping of reusable components."
    },
    "footer": {
-     "text": "footer from data"
+     "text": "Made with &hearts; by <a href=\"https://twitter.com/Freizeitler\" title=\"visit Freizeitler on Twitter\">@Freizeitler</a>"
    }
 }
