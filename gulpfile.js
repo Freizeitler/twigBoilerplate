@@ -27,7 +27,7 @@ gulp.task('sassGlobals', function () {
 });
 
 // gulp-uglify
-gulp.task('compress', function (cb) {
+gulp.task('compressJs', function (cb) {
   pump([
       gulp.src('patterns/**/*.js'),
       uglify(),
@@ -40,7 +40,7 @@ gulp.task('compress', function (cb) {
 });
 
 // gulp-concat
-gulp.task('scripts', function() {
+gulp.task('concatScripts', function() {
   return gulp.src('patterns/**/*.js')
     .pipe(concat('app.js'))
     .pipe(gulp.dest('./assets/js/'));
@@ -49,7 +49,8 @@ gulp.task('scripts', function() {
 // gulp-watch
 gulp.task('watch', function () {
   gulp.watch('patterns/**/*.scss', ['sassPatterns']);
-  gulp.watch('scss/*.scss', ['sassGlobals']);
+  gulp.watch('scss/*.scss', ['sassGlobals']);  
+  gulp.watch('patterns/**/*.js', ['compressJs', 'concatScripts']);
 });
 
 // default

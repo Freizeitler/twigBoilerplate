@@ -1,0 +1,18 @@
+{#
+@name: atomButton
+*
+@description: This component can be a button or link that looks like a button. You can a lot here with @params
+*
+@params: 
+* text: $string
+* element: button | anchor
+*
+#}
+
+<link rel="stylesheet" property="stylesheet" href="patterns/atoms/atomButton/css/atomButton.css">
+
+{% if element == 'button' %}
+<button class="atomButton">{{ text }}</button>
+{% else %}
+<a href="" class="atomButton">{{ text }}</a>
+{% endif %}

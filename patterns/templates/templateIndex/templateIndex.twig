@@ -16,6 +16,14 @@
         {{ data.main.headline | raw }}
     </h2>
     <p>{{ data.main.text | raw }}</p>
+
+    <p>
+        {% embed "atoms/atomButton/atomButton.twig" with {
+        text: data.main.text.buttons.first.text,
+        element: 'button'
+    } %}{% endembed %}
+    </p>
+
 </main>
 
 {% embed "organisms/pageFooter/pageFooter.twig" with {
