@@ -5,6 +5,8 @@
 *
 #}
 
+<link rel="stylesheet" property="stylesheet" href="patterns/templates/templateIndex/css/templateIndex.css">
+
 {% embed "organisms/pageHeader/pageHeader.twig" with {
     headline: data.header.text
 } %}{% endembed %}
@@ -16,6 +18,6 @@
     <p>{{ data.main.text }}</p>
 </main>
 
-<footer class="tamplateIndex__footer">
-    <p>{{ data.footer.text}}</p>
-</footer>
+{% embed "organisms/pageFooter/pageFooter.twig" with {
+    text: data.footer.text
+} %}{% endembed %}
