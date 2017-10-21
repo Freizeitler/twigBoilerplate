@@ -4,7 +4,7 @@
    },
    "main": {
     "headline": "A boilerplate for Twig projects",
-    "text": "An Atomic Web Design boilerplate for rapid prototyping of reusable components."
+    "text": "An Atomic Web Design boilerplate for rapid prototyping of reusable components. Learn more on <a href=\"https://github.com/Freizeitler/twigBoilerplate\" title=\"read guide on GitHu\">Github</a>"
    },
    "footer": {
      "text": "Made with &hearts; by <a href=\"https://twitter.com/Freizeitler\" title=\"visit Freizeitler on Twitter\">@Freizeitler</a>"
