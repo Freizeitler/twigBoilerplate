@@ -3,6 +3,8 @@
 .pageHeader {
     background-color: $global-color-light; 
     padding: 20px;
+    box-sizing: border-box; 
+    height: $global-header-height;
 
     &__headline {
         margin: 0;

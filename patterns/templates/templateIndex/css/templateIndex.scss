@@ -4,5 +4,6 @@
 
     &__main {
         padding: 20px;
+        min-height: calc(100vh - #{$global-header-height} - (#{$global-footer-height} * 2));
     }
 }

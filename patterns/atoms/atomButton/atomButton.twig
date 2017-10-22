@@ -6,13 +6,14 @@
 @params: 
 * text: $string
 * element: button | anchor
+* type: button (default) | submit [only if button]
 *
 #}
 
 <link rel="stylesheet" property="stylesheet" href="patterns/atoms/atomButton/css/atomButton.css">
 
 {% if element == 'button' %}
-<button class="atomButton">{{ text }}</button>
+<button type="{{ type | default('button') }}" class="atomButton">{{ text }}</button>
 {% else %}
 <a href="" class="atomButton">{{ text }}</a>
 {% endif %}
