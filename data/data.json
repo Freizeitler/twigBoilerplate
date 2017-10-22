@@ -4,7 +4,7 @@
   },
   "main": {
     "headline": "A boilerplate for Twig projects",
-    "text": "<p>An Atomic Web Design boilerplate for rapid prototyping of reusable components. Read more on it on <a href=\"https://github.com/Freizeitler/twigBoilerplate\" title=\"read guide on GitHu\">Github</a></p><p>Twig has a very good documentation. You should give it a try: <a href=\"https://twig.symfony.com/doc/2.x/intro.html\" title=\"read the documentation of Twig\">Twig - Introduction</a></p><p>Here are examples from a single button component. Sometimes, buttons and anchors should visually not be distinguished, but technically they're completely different elements. It's configurable by simply passing parameters to the button component.</p>",
+    "text": "<p>An Atomic Web Design boilerplate for rapid prototyping of reusable components. Read more on it on <a href=\"https://github.com/Freizeitler/twigBoilerplate\" title=\"read guide on GitHu\">Github</a></p><p>Twig has a very good documentation. You should give it a try: <a href=\"https://twig.symfony.com/doc/2.x/intro.html\" title=\"read the documentation of Twig\">Twig - Introduction</a></p><h3>An example &ndash; buttons ;)</h3><p>Here are examples from a single button component. Sometimes, buttons and anchors should visually not be distinguished, but technically they're completely different elements. It's configurable by simply passing parameters to the button component.</p>",
     "buttons": {
       "first": {
         "text": "I'm a real button"
