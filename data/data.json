@@ -7,10 +7,10 @@
     "text": "An Atomic Web Design boilerplate for rapid prototyping of reusable components. Learn more on <a href=\"https://github.com/Freizeitler/twigBoilerplate\" title=\"read guide on GitHu\">Github</a>",
     "buttons": {
       "first": {
-        "text": "Button"
+        "text": "I'm a button"
       },
       "second": {
-        "text": "This is an anchor, though"
+        "text": "I'm an anchor, though"
       }
     }
   },
