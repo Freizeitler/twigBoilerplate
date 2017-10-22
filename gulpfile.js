@@ -49,7 +49,7 @@ gulp.task('concatScripts', function() {
 // gulp-watch
 gulp.task('watch', function () {
   gulp.watch('patterns/**/*.scss', ['sassPatterns']);
-  gulp.watch('scss/*.scss', ['sassGlobals']);  
+  gulp.watch('scss/*.scss', ['sassGlobals', 'sassPatterns']);  
   gulp.watch('patterns/**/*.js', ['compressJs', 'concatScripts']);
 });
 
