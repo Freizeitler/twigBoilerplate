@@ -4,7 +4,7 @@
   },
   "main": {
     "headline": "A boilerplate for Twig projects",
-    "text": "An Atomic Web Design boilerplate for rapid prototyping of reusable components. Learn more on <a href=\"https://github.com/Freizeitler/twigBoilerplate\" title=\"read guide on GitHu\">Github</a>",
+    "text": "<p>An Atomic Web Design boilerplate for rapid prototyping of reusable components. Learn more on <a href=\"https://github.com/Freizeitler/twigBoilerplate\" title=\"read guide on GitHu\">Github</a></p><p>Here are examples out of a single button component. Sometimes, buttons and anchors should visually not be distinguished, but technically they're completely different elements.</p>",
     "buttons": {
       "first": {
         "text": "I'm a button"

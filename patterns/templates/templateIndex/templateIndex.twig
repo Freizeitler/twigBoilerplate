@@ -15,7 +15,7 @@
     <h2 class="templateIndex__main__headline">
         {{ data.main.headline | raw }}
     </h2>
-    <p>{{ data.main.text | raw }}</p>
+    {{ data.main.text | raw }}
 
     <p>
         {% embed "atoms/atomButton/atomButton.twig" with {
