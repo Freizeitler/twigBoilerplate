@@ -3,10 +3,16 @@
 .atomButton {
     border: none;
     background-color: $global-color-light;
+    border: 1px solid $global-color-light;
     display: inline-block;
     padding: 10px; 
     text-decoration: none;
     font-size: 1em;
     color: inherit;
     cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {        
+     background-color: transparent;
+    }
 }

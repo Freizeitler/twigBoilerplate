@@ -7,6 +7,8 @@
 * text: $string
 * element: button | anchor
 * type: button (default) | submit [only if button]
+* href: $string [only if anchor]
+* title: $string [only if anchor]
 *
 #}
 
@@ -15,5 +17,5 @@
 {% if element == 'button' %}
 <button type="{{ type | default('button') }}" class="atomButton">{{ text }}</button>
 {% else %}
-<a href="" class="atomButton">{{ text }}</a>
+<a href="{{ href }}" title="{{ title }}" class="atomButton">{{ text }}</a>
 {% endif %}

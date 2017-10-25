@@ -20,14 +20,17 @@
     <p>
         {% embed "atoms/atomButton/atomButton.twig" with {
         text: data.main.buttons.first.text,
-        element: 'button'
+        element: 'button',
+        type: 'button'
     } %}{% endembed %}
     </p>
 
     <p>
         {% embed "atoms/atomButton/atomButton.twig" with {
         text: data.main.buttons.second.text,
-        element: 'anchor'
+        element: 'anchor',
+        href: '#',
+        title: 'I\'m a title'
     } %}{% endembed %}
     </p>
 
