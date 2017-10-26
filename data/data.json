@@ -12,7 +12,8 @@
       "second": {
         "text": "I'm an anchor"
       }
-    }
+    },
+    "text2": "<h3>Another example &ndash; form elements</h3><p>All these form elements live in the same component and can be released by simply passing a parameter."
   },
   "footer": {
     "text": "Made with &hearts; by <a href=\"https://twitter.com/Freizeitler\" title=\"visit Freizeitler on Twitter\">@Freizeitler</a>"

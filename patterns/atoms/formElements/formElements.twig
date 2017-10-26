@@ -5,8 +5,18 @@
 *
 @params: 
 * element: text | email | select
+* label: $string
+* name: $string
 *
 #}
 
 <link rel="stylesheet" property="stylesheet" href="patterns/atoms/formElements/css/formElements.css">
 
+{% if element == 'text' %}
+<label class="formElements__label"></label>
+
+{% elseif element == 'email' %}
+
+{% elseif element == 'select' %}
+
+{% endif %}
