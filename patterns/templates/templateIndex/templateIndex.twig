@@ -35,6 +35,23 @@
     </p>
 
     {{ data.main.text2 | raw }}
+    <p>
+        {% embed "atoms/formElements/formElements.twig" with {
+        element: 'text',
+        label: 'Name (this is an input type text)',
+        name: 'name',
+        id: 'name'
+    } %}{% endembed %}
+    </p>
+
+    <p>
+        {% embed "atoms/formElements/formElements.twig" with {
+        element: 'email',
+        label: 'E-mail (this is an input type email)',
+        name: 'name',
+        id: 'name'
+    } %}{% endembed %}
+    </p>
 
 </main>
 

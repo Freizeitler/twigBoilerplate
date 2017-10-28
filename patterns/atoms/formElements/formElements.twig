@@ -7,16 +7,15 @@
 * element: text | email | select
 * label: $string
 * name: $string
+* id: $string
 *
 #}
 
 <link rel="stylesheet" property="stylesheet" href="patterns/atoms/formElements/css/formElements.css">
 
-{% if element == 'text' %}
-<label class="formElements__label"></label>
-
-{% elseif element == 'email' %}
-
+{% if element == 'text' or element == 'email' %}
+<label class="formElements__label" for="{{ id }}">{{ label }}</label>
+<input class="formElements__input" type="{{ element }}" name="{{ name }}" />
 {% elseif element == 'select' %}
 
 {% endif %}
