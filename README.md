@@ -4,13 +4,13 @@ A little handy boilerplate for setting up component-based development based on P
 ## Installation
 __In upfront you need to install [npm](https://www.npmjs.com/), [composer](https://getcomposer.org/) and [gulp](https://gulpjs.com/).__
 
-Then Start with 
+Start with:
 
 `$ composer install`
 
 This will install Twig and all of its dependencies into the vendor folder. 
 
-Then you'll need the gulp dependencies for compiling SASS and concatenating it.
+Install the gulp dependencies for compiling SASS and concatenating it:
 
 `$ npm install`
 
