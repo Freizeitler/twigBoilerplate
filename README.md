@@ -8,7 +8,9 @@ Then Start with
 
 `$ composer install`
 
-This will install Twig and all of its dependencies into the vendor folder. Then you'll need th gulp stuff for compiling SASS and concatenating it.
+This will install Twig and all of its dependencies into the vendor folder. 
+
+Then you'll need the gulp dependencies for compiling SASS and concatenating it.
 
 `$ npm install`
 
