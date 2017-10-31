@@ -7,7 +7,7 @@ Download the project and extract it into its folder. Keep in mind that a PHP ser
 
 __In upfront you need to install [npm](https://www.npmjs.com/), [Composer](https://getcomposer.org/) and [Gulp](https://gulpjs.com/).__
 
-Start with:
+In your project folder, start with:
 
 `$ composer install`
 
