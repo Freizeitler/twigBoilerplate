@@ -1,14 +1,15 @@
 <p>Komponentenbasierte Front-End-Entwicklung mit Twig</p>
 <h2>[Die Twigs der Webentwicklung]</h2>
 <p>[Ein neuer Wind weht durch das Frontend. Frameworks wie React und Angular spalten die Lager und sorgen für kontroverse Diskussionen. Aber durch diese Welle halten neue, interessante Architekturen Einzug in die Web-Entwicklung und beeinflussen die Arbeitsweise des Frontend-Entwicklers.]</p>
+
 <p>Komponentenbasierte Entwicklung ist seit längerem Thema in der Frontend-Community. Allerdings denken heutzutage viele Entwickler dabei automatisch an SPAs und moderne Frameworks wie Vue, React oder Angular. Aber es gibt auch Lösungen, die nicht nur clienseitig, hybrid und ausschließlich mit JavaScript funktionieren, sondern direkt auf dem Server mit PHP arbeiten.</p>
 
-<p>Dieser Artikel behandelt die komponentenbasierte Arbeitsweise mit der PHP-Template-Engine Twig. Twig wurde erstmalig im Jahr 2009, fast zeitgleich mit dem Web-Template-System Mustache, veröffentlicht und bedient sich ebenfalls der geschweiften Klammern. Das macht den Einstieg in die Syntax erheblich einfacher. Twig erfreut sich immer noch großer Beliebtheit, wird zum Beispiel vom PHP-Framework Symfony oder dem CMS Drupal als Template-Engine genutzt und verfügt über eine ausführliche Dokumentation.</p>
+<p>Dieser Artikel behandelt die komponentenbasierte Arbeitsweise mit der PHP-Template-Engine Twig [LINK]. Twig wurde erstmalig im Jahr 2009, fast zeitgleich mit dem Web-Template-System Mustache [LINK], veröffentlicht und bedient sich ebenfalls der gewohnten, geschweiften Klammern. Das macht den Einstieg in die Syntax erheblich einfacher. Twig erfreut sich auch immer noch großer Beliebtheit und wird zum Beispiel vom PHP-Framework Symfony oder dem CMS Drupal als Template-Engine genutzt und verfügt über eine ausführliche Dokumentation. </p>
 
 <h3>Boilerplate zum Artikel</h3>
-<p>Begleitend zum Artikel und zur Verdeutlichung der Arbeitsweise steht auf Github eine <a href="https://github.com/Freizeitler/twigBoilerplate" title="zu Github">twigBoilerplate</a> bereit. Sie arbeitet mit dem PHP-Package-Manager Composer, empfohlen um Twig mit all seinen Abhängigkeiten zu installieren, npm und Gulp.</p>
+<p>Begleitend zum Artikel und zur Verdeutlichung der Arbeitsweise steht auf Github eine <a href="https://github.com/Freizeitler/twigBoilerplate" title="zu Github">twigBoilerplate</a> bereit. Sie arbeitet mit dem PHP-Package-Manager Composer [LINK] (empfohlen um Twig mit all seinen Abhängigkeiten zu installieren), npm und Gulp.</p>
 
-<h3>Technische Voraussetzungen:</h3>
+<h3>Technische Voraussetzungen für die Boilerplate:</h3>
 <ul>
     <li>Twig (PHP)</li>
     <li>Sass (BEM)</li>
@@ -18,13 +19,16 @@
     <li>PHP-Server</li>
 </ul>
 
-<h3>Komponentenbasierte Entwicklung &ndash; Grundlegendes</h3>
-<p>Die Arbeit mit Komponenten bringt grundsätzlich viele Vorteile. Zum Beispiel wird redundante Programmierung minimiert und einzelne Komponenten können &ndash; im besten Fall auch projektübergreifend &ndash; mehrfach eingesetzt werden. Dabei ist es egal, ob flache Hierarchien oder ein Ansatz wie Atomic Web Design eingesetzt werden. Das Prinzip bleibt dasselbe. Eine Komponente ist in der Lage autark zu bestehen aber Informationen aus unterschiedlichen Quellen zu konsumieren und darzustellen.</p>
-<p>Komponenten leben in ihrem eigenen Scope &ndash; eingekapselt in ihrem Anwendungsbereich &ndash; und sind dadurch weitestgehend Immun gegenüber äußeren Einflüssen wie zum Beispiel im Front-End durch globales CSS oder JavaScript. Sie empfangen Daten über den Context, das bedeutet Daten werden über Parameter und Variablen an die nächste, aufgerufene Komponente weitergegeben. Das setzt voraus, dass übergeordnete Komponenten in der Lage sind untergeordnete Komponenten zu integrieren und Daten an diese zu übermitteln.</p>
-<p>Hier kommt der hierarchische Ansatz des Atomic Web Designs ins Spiel. Pages integrieren Templates, Templates integrieren Organisms, diese wiederum rufen Molecules auf und das letzte Glied in der Kette bilden die Atoms als kleinste Einheit. Dieser Ansatz sollte allerdings zu Gunsten einer geringeren Komplexität nicht allzu stringent verfolgt werden.<br>Eine intuitive Strukturierung der Komponenten macht aber die Architektur eines Projektes wesentlich übersichtlicher und bildet die optimale Grundlage für die spätere Wartung und eine eventuelle Skalierung. Styleguide-Systeme wie Pattern Lab oder Fractals orientieren sich zum Beispiel ebenfalls an komponentenbasierten Strukturen und Pattern Lab bietet sogar einen fertigen Twig-Driver an. Die Grundsteine für eine Anbindung wären somit also gelegt.</p>
+<h3>Komponentenbasierte Entwicklung &ndash; grundlegende Überlegungen</h3>
+<p>Die Arbeit mit Komponenten bringt grundsätzlich viele Vorteile mit sich. Zum Beispiel wird redundante Programmierung minimiert und einzelne Komponenten können &ndash; im besten Fall auch projektübergreifend &ndash; mehrfach eingesetzt werden. Dabei ist es egal, ob flache Hierarchien oder ein Ansatz wie Atomic Web Design eingesetzt werden. Das Prinzip bleibt dasselbe. Eine Komponente ist in der Lage autark zu bestehen aber Informationen aus unterschiedlichen Quellen zu konsumieren und darzustellen.</p>
+<p>Die Komponenten leben in ihrem eigenen Scope &ndash; eingekapselt in ihrem Anwendungsbereich &ndash; und sind dadurch weitestgehend Immun gegenüber äußeren Einflüssen wie zum Beispiel im Front-End durch globales CSS oder JavaScript. Sie empfangen Daten über den Context, das bedeutet Daten werden über Parameter und Variablen an die nächste, aufgerufene Komponente weitergegeben. Das setzt voraus, dass übergeordnete Komponenten in der Lage sind untergeordnete Komponenten zu integrieren und Daten an diese zu übermitteln.</p>
+[Grafik: Beispiel Datenstrom]
+<p>Hier kommt der hierarchische Ansatz des Atomic Web Designs ins Spiel. Pages integrieren Templates, Templates integrieren Organisms, diese wiederum rufen Molecules auf und das letzte Glied in der Kette bilden Atoms als die kleinste Einheit. Dieser Ansatz sollte allerdings zu Gunsten einer möglichst geringen Komplexität nicht allzu stringent verfolgt werden. Zum Beispiel können Organisms auch direkt Atoms einbinden.<br>Eine intuitive Strukturierung der Komponenten macht die Architektur eines Projektes wesentlich übersichtlicher und bildet die optimale Grundlage für die spätere Wartung und eine eventuelle Skalierung. Styleguide-Systeme wie Pattern Lab [LINK] oder Fractals [LINK] orientieren sich zum Beispiel ebenfalls an komponentenbasierten Strukturen und Pattern Lab bietet sogar einen fertigen Twig-Driver [LINK] an. Die Grundsteine für eine Anbindung wären somit also gelegt.</p>
 
 <h3>Komponentenbasierte Entwicklung mit Twig</h3>
-<p>Komponenten sind Code-Fragmente, die, zusammen mit ihren spezifischen Abhängigkeiten wie zum Beispiel der Logik und dem Styling, in unterschiedlichen Umgebeungen eingesetzt werden können. </p>
+<p>Komponenten sind Code-Fragmente, die, zusammen mit ihren spezifischen Abhängigkeiten wie zum Beispiel der Logik und dem Styling, in unterschiedlichen Umgebeungen eingesetzt werden können. Das zu gewährleisten ist die Aufgabe der Template-Engine, die die einzelnen Komponenten delegiert und zu einer HTML-Seite kombiniert. </p>
+
+<p>Allerdings sollte die Ordnerstruktur vorher festgelegt werden. Die twigBoilerplate sieht folgende vor:</p>
 
 
 [Notizen: Grid auf Template-Basis, Komponente kann überall existieren, Namespacing nur auf Komponentenebene, Viseuelle Zusammenfassung von Elementen in Komponenten, konkatenierung von CSS und JS (Performance, zlib Kompression, Vorteile, Nachteile), ...]
