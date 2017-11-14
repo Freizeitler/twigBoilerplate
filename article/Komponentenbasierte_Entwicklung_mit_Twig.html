@@ -36,11 +36,11 @@
 </code></pre>
 
 <p>Mehr zu der Arbeitsweise später in einem konkreten Beispiel.</p>
-<p>Hinzu kommen viele Filter und Kontrollstrukturen, zum Beispiel Iterationen mit For-Loops.</p> 
+<p>Hinzu kommen viele Filter und Kontrollstrukturen, zum Beispiel Iterationen mit For-Loops oder der Raw-Filter zur Ausgabe von gerendertem HTML.</p> 
 <pre><code>
 &lt;ul&gt;
 {% for item in items %}
-    &lt;li&gt;{{ item.foo }}&lt;/li&gt;
+    &lt;li&gt;{{ item.foo | raw }}&lt;/li&gt;
 {% endfor %}
 &lt;/ul&gt;
 </code></pre>
