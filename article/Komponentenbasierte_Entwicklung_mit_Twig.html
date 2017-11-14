@@ -13,14 +13,38 @@
 <p>Hier kommt der hierarchische Ansatz des Atomic Web Designs ins Spiel. Pages integrieren Templates, Templates integrieren Organisms, diese wiederum rufen Molecules auf und das letzte Glied in der Kette bilden Atoms als die kleinste Einheit. Dieser Ansatz sollte allerdings zu Gunsten einer möglichst geringen Komplexität nicht allzu stringent verfolgt werden. Hierarchieebenen können und sollten durchaus übersprungen werden.<br>Eine intuitive Strukturierung der Komponenten macht die Architektur eines Projektes letztlich aber wesentlich übersichtlicher und bildet eine optimale Grundlage für die spätere Wartung und eine eventuelle Skalierung. Styleguide-Systeme wie zum Beispiel <a href="http://patternlab.io/" title="Atomic Design Systeme">Pattern Lab</a> oder <a href="https://fractal.build/" title="Komponenten Bibliothek und Styleguide">Fractals</a> orientieren sich an komponentenbasierten Strukturen und Pattern Lab bietet &ndash; wie bereits erwähnt &ndash; einen fertigen Twig-Driver an.</p>
 
 <h3>Komponentenbasierte Entwicklung und Frontend-Interfaces mit Twig</h3>
-<p>Twig bietet viele Werkzeuge um komponentenbasiert und nach dem <abbr title="Don't Repeat Yourself">DRY</abbr>-Prinzip zu programmieren. Allen voran sind hier Funktionen zum Einbetten von Patterns wie zum Beispiel <code>{% include %}</code>, <code>{% embed %}{% endembed %}</code> aber auch <code>{% extends %}</code> zu nennen. Diese bilden die Grundlage für die Wiederverwertung von Patterns und die Vererbung von Daten. Mit der Include-Funktion eingebundene Patterns können direkt auf den Context des Eltern-Elements zugreifen. Bei Embed- und Extends-Funktionen gibt es ein paar zusätzliche Möglichkeiten, wie die Vererbung über Content-Blöcke.</p> 
+<p>Twig bietet viele Werkzeuge um komponentenbasiert und nach dem <abbr title="Don't Repeat Yourself">DRY</abbr>-Prinzip zu programmieren. Allen voran stehen hier Funktionen zum Einbetten von Patterns wie zum Beispiel <code>{% include %}</code>, <code>{% embed %}{% endembed %}</code> aber auch <code>{% extends %}</code>. Diese bilden die Grundlage für die Wiederverwertung von Patterns und die Vererbung von Daten. Mit der Include-Funktion eingebundene Patterns können direkt auf den Context des Eltern-Elements zugreifen. Variablen werden mit dem with-Keyword weitergegeben.</p>
+
+<pre><code>{% include 'pattern.twig' with { variable: 'foo' } %}</code></pre> 
+
+<p>Embed- und Extends-Funktionen gibt es die zusätzliche Möglichkeit ganze Content-Blöcke zu vererben.</p> 
+
 <pre><code>
 {% block header %}
   &lt;header class="pageHeader"&gt;Ich bin ein Header&lt;/header&gt;
 {% endblock %}
 </code></pre>    
-<p>Mehr dazu später in einem konkreten Beispiel.</p>
-<p>Hinzu kommen viele </p> 
+
+<p>Oder die Weitergabe von Variablen mit dem With-Keyword.</p>
+
+<pre><code>
+{% embed 'pattern.twig' with { variable: 'foo' } %}
+  {% block header %}
+  &lt;header class="pageHeader"&gt;Ich bin ein Header&lt;/header&gt;
+  {% endblock %}
+{% endembed %}
+</code></pre>
+
+<p>Mehr zu der Arbeitsweise später in einem konkreten Beispiel.</p>
+<p>Hinzu kommen viele Filter und Kontrollstrukturen, zum Beispiel Iterationen mit For-Loops.</p> 
+<pre><code>
+&lt;ul&gt;
+{% for item in items %}
+    &lt;li&gt;{{ item.foo }}&lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;
+</code></pre>
+<p>Alle Funktionen aufzuzählen würde den Rahmen dieses Artikels komplett sprengen. Die <a href="https://twig.symfony.com/doc/2.x/" title="Zur Dokumentation von Twig">Dokumentation</a> verrät mehr.</p>
 
 <h3>Beispiel einer Ordnerstruktur im Atomic Web Design</h3>
 <p></p>
