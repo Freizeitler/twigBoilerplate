@@ -4,7 +4,7 @@
 
 <p>Komponentenbasierte Entwicklung ist seit längerem Thema in der Frontend-Community. Und viele Entwickler denken dabei heutzutage automatisch an <abbr title="Single Page Application">SPAs</abbr> und moderne Frameworks wie Vue, React oder Angular. Bevor die Architektur aber Frameworks mit zum Einen einer steilen Lernkurve und zum Anderen einem hohem Abstraktionsgrad für HTML zur Erzeugung eines Hypertext-Dokuments einplant, sollten mögliche Alternativen in Betracht gezogen werden. Zum Beispiel Alternativen, die nicht nur clienseitig, hybrid und ausschließlich mit JavaScript funktionieren, sondern direkt auf dem Server mit PHP arbeiten.</p>
 
-<p>Dieser Artikel behandelt die komponentenbasierte Arbeitsweise mit der PHP-Template-Engine <a href="https://twig.symfony.com/" title="Zur Seite von Twig">Twig</a>. Twig wurde erstmalig im Jahr 2009, fast zeitgleich mit dem Web-Template-System <a href="https://mustache.github.io/" title="Mehr zu Mustache">Mustache</a>, veröffentlicht und bedient sich ebenfalls einer ähnlichen Variante der gewohnten, geschweiften Klammern. Das macht den Einstieg in die Syntax erheblich einfacher. Twig wird stetig weiterentwickelt (<a href="https://github.com/twigphp/Twig/commits/2.x" title="Vergleiche Commits auf Github">Version 2.4.4 am 27.10.2017</a>), verfügt über eine sehr gute und ausführliche Dokumentation und wird zum Beispiel vom PHP-Framework Symfony oder dem CMS Drupal (Version 8) als Template-Engine integriert. Die Hotelsuchmaschine Trivago nutzt Pattern Lab mit einer <a href="https://github.com/pattern-lab/edition-php-twig-standard" title="Pattern Lab Twig Edition auf Github">Twig Edition</a>, mehr darüber in diesem <a href="https://medium.com/@pistenprinz/rebuilding-an-aircraft-on-the-fly-a-pattern-library-integration-at-trivago-b2fd6954a88e" title="Rebuilding an aircraft on the fly — A Pattern Library integration at trivago">Artikel</a>.</p>
+<p>Dieser Artikel behandelt die komponentenbasierte Arbeitsweise mit der PHP-Template-Engine <a href="https://twig.symfony.com/" title="Zur Seite von Twig">Twig</a>. Twig wurde erstmalig im Jahr 2009, fast zeitgleich mit dem Web-Template-System <a href="https://mustache.github.io/" title="Mehr zu Mustache">Mustache</a>, veröffentlicht und bedient sich ebenfalls einer ähnlichen Variante der gewohnten, geschweiften Klammern. Das macht den Einstieg in die Syntax erheblich einfacher. Twig wird stetig weiterentwickelt (<a href="https://github.com/twigphp/Twig/commits/2.x" title="Vergleiche Commits auf Github">Version 2.4.4 am 27.10.2017</a>), verfügt über eine sehr gute und ausführliche Dokumentation und wird zum Beispiel vom PHP-Framework Symfony oder dem CMS Drupal (ab Version 8) als Template-Engine integriert. Die Hotelsuchmaschine Trivago nutzt Pattern Lab mit einer <a href="https://github.com/pattern-lab/edition-php-twig-standard" title="Pattern Lab Twig Edition auf Github">Twig Edition</a>, mehr darüber in diesem <a href="https://medium.com/@pistenprinz/rebuilding-an-aircraft-on-the-fly-a-pattern-library-integration-at-trivago-b2fd6954a88e" title="Rebuilding an aircraft on the fly — A Pattern Library integration at trivago">Artikel</a>.</p>
 
 <h3>Komponentenbasierte Entwicklung &ndash; grundlegende Ansätze</h3>
 <p>Die Arbeit mit Komponenten bringt grundsätzlich viele Vorteile mit sich. Zum Beispiel wird redundante Programmierung minimiert und einzelne Komponenten können &ndash; im besten Fall auch projektübergreifend &ndash; mehrfach eingesetzt werden. Dabei ist es egal, ob flache Hierarchien oder ein Ansatz wie Atomic Web Design eingesetzt werden. Das Prinzip bleibt dasselbe. Eine Komponente ist in der Lage autark zu bestehen und Informationen aus unterschiedlichen Quellen zu konsumieren und darzustellen.</p>
@@ -13,7 +13,7 @@
 <p>Hier kommt der hierarchische Ansatz des Atomic Web Designs ins Spiel. Pages integrieren Templates, Templates integrieren Organisms, diese wiederum rufen Molecules auf und das letzte Glied in der Kette bilden Atoms als die kleinste Einheit. Dieser Ansatz sollte allerdings zu Gunsten einer möglichst geringen Komplexität nicht allzu stringent verfolgt werden. Hierarchieebenen können und sollten durchaus übersprungen, allerdings nie umgekehrt werden, also ein Atom sollte kein Molecule einbinden.<br>Eine intuitive Strukturierung der Komponenten macht die Architektur eines Projektes letztlich aber wesentlich übersichtlicher und bildet eine optimale Grundlage für die spätere Wartung und eine eventuelle Skalierung. Styleguide-Systeme wie zum Beispiel <a href="http://patternlab.io/" title="Atomic Design Systeme">Pattern Lab</a> oder <a href="https://fractal.build/" title="Komponenten Bibliothek und Styleguide">Fractals</a> orientieren sich an komponentenbasierten Strukturen und Pattern Lab bietet &ndash; wie bereits erwähnt &ndash; einen fertigen Twig-Driver an.</p>
 
 <h3>Komponentenbasierte Entwicklung und Frontend-Interfaces mit Twig</h3>
-<p>Twig bietet viele Werkzeuge um komponentenbasiert und nach dem <abbr title="Don't Repeat Yourself">DRY</abbr>-Prinzip zu programmieren. Allen voran stehen hier Funktionen zum Einbetten von Patterns wie zum Beispiel <code>{% include %}</code>, <code>{% embed %}{% endembed %}</code> aber auch <code>{% extends %}</code>. Diese bilden die Grundlage für die Wiederverwertung von Patterns und die Vererbung von Daten.</p> 
+<p>Twig bietet viele Werkzeuge um komponentenbasiert und nach dem <abbr title="Don't Repeat Yourself">DRY</abbr>-Prinzip zu programmieren. Allen voran stehen hier Funktionen zum Einbetten von Patterns wie zum Beispiel <code>{% include %}</code>, <code>{% embed %}{% endembed %}</code>, <code>{% import %}</code> aber auch <code>{% extends %}</code>. Diese bilden die Grundlage für die Wiederverwertung von Patterns und die Vererbung von Daten.</p> 
 <p>Mit der Include-Funktion eingebundene Patterns können direkt auf den Context des Eltern-Elements zugreifen. Variablen oder Parameter können mit dem with-Keyword weitergegeben werden.</p>
 
 <pre><code>{% include 'pattern.twig' with { variable: 'foo' } %}</code></pre> 
@@ -36,6 +36,18 @@
 {% endembed %}
 </code></pre>
 
+<p>Makros eigne sich hervorragend zur Einbindung von häufig verwendeten Snippets.</p>
+
+<pre><code>
+{% macro 'pattern.twig' with { variable: 'foo' } %}
+    [[ Beispiel Makro ]]]
+{% endmacro %}
+</code></pre>
+
+<pre><code>
+{% import 'forms.html' as forms %}
+</code></pre>
+
 <p>Hinzu kommen viele Filter und Kontrollstrukturen, zum Beispiel Iterationen mit For-Loops oder der Raw-Filter zur Ausgabe von gerendertem HTML.</p> 
 
 <pre><code>
@@ -48,7 +60,7 @@
 
 <p>Alle Funktionen aufzuzählen würde an dieser Stelle den Rahmen sprengen. Mehr zu der Arbeitsweise später in einem konkreten Beispiel und die <a href="https://twig.symfony.com/doc/2.x/" title="Zur Dokumentation von Twig">Dokumentation</a> verrät mehr.</p>
 
-<h3>Boilerplate zum Artikel</h3>
+<h3>Und jetzt alle zusammen: Die Boilerplate zum Artikel</h3>
 <p>Begleitend zum Artikel und zur Verdeutlichung der Arbeitsweise steht auf Github eine <a href="https://github.com/Freizeitler/twigBoilerplate" title="zu Github">twigBoilerplate</a> bereit. Sie arbeitet mit dem PHP-Package-Manager Composer (empfohlen um Twig mit all seinen Abhängigkeiten zu installieren), npm und Gulp.</p>
 
 <p><strong>Technische Voraussetzungen für die Boilerplate:</strong></p>
@@ -112,8 +124,8 @@
                 └───css
                 |   └───foo.scss
                 └───js
-                    └───foo.jsA
+                    └───foo.js
 </pre>
 
 
-[Notizen: SVG-Verwaltung als Beispiel (in einer Komponente), Grid auf Template-Basis, Namespacing nur auf Komponentenebene, Viseuelle Zusammenfassung von Elementen in Komponenten, konkatenierung von CSS und JS (Performance, zlib Kompression, Vorteile, Nachteile), ...]
+[Notizen: Beispiel mit macros (formElements.twig, https://twig.symfony.com/doc/2.x/tags/import.html, https://mijingo.com/blog/using-macros-in-twig-and-craft), SVG-Verwaltung als Beispiel (in einer Komponente), Grid auf Template-Basis, Namespacing nur auf Komponentenebene, Viseuelle Zusammenfassung von Elementen in Komponenten, konkatenierung von CSS und JS (Performance, zlib Kompression, Vorteile, Nachteile), ...]
