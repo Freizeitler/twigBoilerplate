@@ -64,6 +64,56 @@
 
 <h3>Beispiel einer Ordnerstruktur im Atomic Web Design</h3>
 <p></p>
+<pre>
+    
+    tpl_fooBar.twig
+    │
+    └───scss
+    |   │
+    |   └───_base.scss
+    |   └───_components.scss
+    |   └───_grid.scss
+    |   └───_helpers.scss
+    |   └───_settings.scss
+    │
+    └───patterns
+        │
+        ├───templates
+        │   │
+        |   └───fooBarPage
+        |       └───fooBarPage.twig
+        |       └───css
+        |       |   └───fooBarPage.scss
+        |       └───js
+        |           └───fooBarPage.js
+        │
+        ├───organisms
+        │   │
+        |   └───fooBar
+        |       └───fooBar.twig
+        |       └───css
+        |       |   └───fooBar.scss
+        |       └───js
+        |           └───fooBar.js
+        |
+        ├───molecules
+        │   │
+        |   └───bar
+        |       └───bar.twig
+        |       └───css
+        |       |   └───bar.scss
+        |       └───js
+        |           └───bar.js
+        |
+        └───atoms
+            │
+            └───foo
+                └───foo.twig
+                └───css
+                |   └───foo.scss
+                └───js
+                    └───foo.jsA
+</pre>
 
 
 [Notizen: SVG-Verwaltung als Beispiel (in einer Komponente), Grid auf Template-Basis, Namespacing nur auf Komponentenebene, Viseuelle Zusammenfassung von Elementen in Komponenten, konkatenierung von CSS und JS (Performance, zlib Kompression, Vorteile, Nachteile), ...]
